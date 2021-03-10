@@ -1,7 +1,7 @@
 <template>
   <div class="col-4">
     <!-- NOTE the route contains both the name and an object to provide needed params -->
-    <router-link :to="{ name: 'CarDetails', params: { id: car._id } }">
+    <router-link :to="{ name: 'HouseDetails', params: { id: house._id } }">
       <div class="card car">
         <img class="card-img-top" :src="house.imgUrl" alt="house" />
         <div class="card-body">
@@ -19,7 +19,7 @@
 export default {
   name: 'house',
   props: {
-    car: Object
+    house: Object
   },
   setup() {
     return {}

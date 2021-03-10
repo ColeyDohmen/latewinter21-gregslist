@@ -43,6 +43,17 @@
         <div class="form-group">
           <input
             type="number"
+            name="levels"
+            id="levels"
+            class="form-control"
+            placeholder="Levels"
+            aria-describedby="helpId"
+            v-model="state.newHouse.levels"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="number"
             name="price"
             id="price"
             class="form-control"
@@ -96,7 +107,7 @@ import { useRouter } from 'vue-router'
 export default {
   name: 'HousesPage',
   setup() {
-    // const router = useRouter()
+    const router = useRouter()
     const state = reactive({
       houses: computed(() => AppState.houses),
       newHouse: {}
@@ -107,12 +118,12 @@ export default {
     })
 
     return {
-      state
-      //   async createCar() {
-      //     const carId = await carsService.createCar(state.newCar)
-      //     router.push({ name: 'CarDetails', params: { id: carId } })
-      //     state.newCar = {}
-      //   }
+      state,
+      async createHouse() {
+        const houseId = await housesService.createHouse(state.newHouse)
+        router.push({ name: 'HouseDetails', params: { id: houseId } })
+        state.newHouse = {}
+      }
     }
   },
   components: {

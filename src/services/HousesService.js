@@ -11,24 +11,24 @@ class HousesService {
     }
   }
 
-  //   async getCar(id) {
-  //     try {
-  //       const res = await sandboxApi.get('cars/' + id)
-  //       AppState.activeCar = res.data
-  //     } catch (error) {
-  //       console.error(error)
-  //     }
-  //   }
+  async getHouse(id) {
+    try {
+      const res = await sandboxApi.get('houses/' + id)
+      AppState.activeHouse = res.data
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
-  //   async createCar(rawCar) {
-  //     try {
-  //       const res = await sandboxApi.post('cars', rawCar)
-  //       AppState.cars.push(res.data)
-  //       return res.data._id
-  //     } catch (error) {
-  //       console.error(error)
-  //     }
-  //   }
+  async createHouse(rawHouse) {
+    try {
+      const res = await sandboxApi.post('houses', rawHouse)
+      AppState.houses.push(res.data)
+      return res.data._id
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   //   async bid(id) {
   //     const car = AppState.cars.find(c => c.id === id)
